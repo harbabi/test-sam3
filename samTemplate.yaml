@@ -9,7 +9,6 @@ Parameters:
         Type: String
 
 Resources:
-Resources:
   MyApi:
     Type: AWS::Serverless::Api
     Properties:
