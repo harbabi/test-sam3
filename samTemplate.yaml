@@ -12,16 +12,17 @@ Resources:
   MyApi:
     Type: AWS::Serverless::Api
     Properties:
-        StageName: prod
+        StageName: sandbox
         DefinitionBody:
             swagger: 2.0
             info:
               title:
                 Ref: AWS::StackName
             paths:
-              "/TimeResource":
+              "/time":
                 get:
                   x-amazon-apigateway-integration:
+                    credentials: "arn:aws:iam::462029873890:role/Swagger-Lambda-Role"
                     httpMethod: POST
                     type: aws_proxy
                     uri:
@@ -31,7 +32,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs4.3
+      Runtime: nodejs6.10
       CodeUri: ./
       AutoPublishAlias: live
       Environment:
