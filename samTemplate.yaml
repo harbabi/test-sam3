@@ -22,6 +22,7 @@ Resources:
               "/time":
                 get:
                   x-amazon-apigateway-integration:
+                    credentials: "arn:aws:iam::462029873890:role/Swagger-Lambda-Role"
                     httpMethod: POST
                     type: aws_proxy
                     uri:
