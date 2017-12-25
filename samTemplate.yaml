@@ -9,7 +9,26 @@ Parameters:
         Type: String
 
 Resources:
-  TimeFunction:
+Resources:
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+        StageName: prod
+        DefinitionBody:
+            swagger: 2.0
+            info:
+              title:
+                Ref: AWS::StackName
+            paths:
+              "/TimeResource":
+                get:
+                  x-amazon-apigateway-integration:
+                    httpMethod: POST
+                    type: aws_proxy
+                    uri:
+                      Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+                  responses: {}
+  MyLambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
@@ -22,6 +41,8 @@ Resources:
           Properties:
             Path: /TimeResource
             Method: GET
+            RestApiId: 
+                Ref: MyApi
       Environment:
         Variables:
           var1: !Ref Var1
