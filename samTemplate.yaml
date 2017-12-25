@@ -35,14 +35,6 @@ Resources:
       Runtime: nodejs4.3
       CodeUri: ./
       AutoPublishAlias: live
-      Events:
-        MyTimeApi:
-          Type: Api
-          Properties:
-            Path: /TimeResource
-            Method: GET
-            RestApiId: 
-                Ref: MyApi
       Environment:
         Variables:
           var1: !Ref Var1
