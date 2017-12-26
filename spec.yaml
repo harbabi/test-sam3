@@ -1,7 +1,8 @@
-swagger: 2.0
+swagger: "2.0"
 info:
-  title:
-    Ref: AWS::StackName
+  title: "RefAWSStackName"
+schemes:
+- https
 paths:
   "/time":
      get:
@@ -9,7 +10,6 @@ paths:
          credentials: "arn:aws:iam::462029873890:role/Swagger-Lambda-Role"
          httpMethod: POST
          type: aws_proxy
-         uri: 
-           Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations
+         uri: "Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyLambdaFunction.Arn}/invocations"
        responses: {}
 
