@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Outputs the time
+
+Parameters:
+    Var1:
+        Type: String
+    Var2:
+        Type: String
+
+Resources:
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+        StageName: sandbox
+        DefinitionUri: ./spec.yaml
+        Variables:
+          LambdaAlias_V1: v1
+          LambdaFunctionName_V1: !Ref MyLambdaFunction_V1
+          LambdaAlias_V2: v2
+          LambdaFunctionName_V2: !Ref MyLambdaFunction_V2
+
+  MyLambdaFunction_V1:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      CodeUri: ./v1
+      AutoPublishAlias: v1
+      Environment:
+        Variables:
+          var1: !Ref Var1
+          var2: !Ref Var2
+
+  MyLambdaFunction_V2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      CodeUri: ./v2
+      AutoPublishAlias: v2
+      Environment:
+        Variables:
+          var1: !Ref Var1
+          var2: !Ref Var2
