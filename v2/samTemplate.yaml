@@ -15,7 +15,7 @@ Resources:
         StageName: sandbox
         DefinitionUri: ./spec.yaml
         Variables:
-          LambdaAlias: v2
+          LambdaAlias_v2: v2
           LambdaFunctionName: !Ref MyLambdaFunction
 
   MyLambdaFunction:
