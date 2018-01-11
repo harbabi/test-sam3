@@ -23,7 +23,7 @@ Resources:
       Handler: index.handler
       Runtime: nodejs4.3
       CodeUri: ./
-      AutoPublishAlias: live
+      AutoPublishAlias: v1
       Environment:
         Variables:
           var1: !Ref Var1
