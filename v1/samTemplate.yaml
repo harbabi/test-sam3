@@ -16,6 +16,7 @@ Resources:
         DefinitionUri: ./spec.yaml
         Variables:
           LambdaAlias: v1
+          LambdaFunctionName: !Ref MyLambdaFunction
 
   MyLambdaFunction:
     Type: AWS::Serverless::Function
