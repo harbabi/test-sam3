@@ -15,12 +15,12 @@ Resources:
         StageName: sandbox
         DefinitionUri: ./spec.yaml
         Variables:
-          LambdaAlias_V1: v1
-          LambdaFunctionName_V1: !Ref MyLambdaFunction_V1
-          LambdaAlias_V2: v2
-          LambdaFunctionName_V2: !Ref MyLambdaFunction_V2
+          LambdaAliasV1: v1
+          LambdaFunctionNameV1: !Ref MyLambdaFunctionV1
+          LambdaAliasV2: v2
+          LambdaFunctionNameV2: !Ref MyLambdaFunctionV2
 
-  MyLambdaFunction_V1:
+  MyLambdaFunctionV1:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
@@ -32,7 +32,7 @@ Resources:
           var1: !Ref Var1
           var2: !Ref Var2
 
-  MyLambdaFunction_V2:
+  MyLambdaFunctionV2:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
