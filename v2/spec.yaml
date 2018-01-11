@@ -4,7 +4,7 @@ info:
 schemes:
 - https
 paths:
-  "v1/time":
+  "v2/time":
      get:
        x-amazon-apigateway-integration:
          credentials: "arn:aws:iam::462029873890:role/Swagger-Lambda-Role"
