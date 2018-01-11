@@ -32,4 +32,15 @@ Resources:
           var1: !Ref Var1
           var2: !Ref Var2
 
+  MyLambdaFunctionV2:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      CodeUri: ./v1
+      AutoPublishAlias: v2
+      Environment:
+        Variables:
+          var1: !Ref Var1
+          var2: !Ref Var2
 
