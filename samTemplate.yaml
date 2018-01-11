@@ -19,6 +19,8 @@ Resources:
           LambdaFunctionNameV1: !Ref MyLambdaFunctionV1
           LambdaAliasV2: v2
           LambdaFunctionNameV2: !Ref MyLambdaFunctionV2
+          LambdaAliasV2: v3
+          LambdaFunctionNameV3: !Ref MyLambdaFunctionV3
 
   MyLambdaFunctionV1:
     Type: AWS::Serverless::Function
@@ -37,10 +39,21 @@ Resources:
     Properties:
       Handler: index.handler
       Runtime: nodejs4.3
-      CodeUri: ./v1
+      CodeUri: ./v2
       AutoPublishAlias: v2
       Environment:
         Variables:
           var1: !Ref Var1
           var2: !Ref Var2
 
+  MyLambdaFunctionV3:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      CodeUri: ./v3
+      AutoPublishAlias: v3
+      Environment:
+        Variables:
+          var1: !Ref Var1
+          var2: !Ref Var2
