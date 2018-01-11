@@ -15,7 +15,7 @@ Resources:
         StageName: sandbox
         DefinitionUri: ./spec.yaml
         Variables:
-          LambdaFunctionName: !Ref MyLambdaFunction
+          LambdaAlias: v1
 
   MyLambdaFunction:
     Type: AWS::Serverless::Function
