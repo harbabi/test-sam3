@@ -19,7 +19,7 @@ Resources:
           LambdaFunctionNameV1: !Ref MyLambdaFunctionV1
           LambdaAliasV2: v2
           LambdaFunctionNameV2: !Ref MyLambdaFunctionV2
-          LambdaAliasV2: v3
+          LambdaAliasV3: v3
           LambdaFunctionNameV3: !Ref MyLambdaFunctionV3
 
   MyLambdaFunctionV1:
