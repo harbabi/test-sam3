@@ -18,7 +18,7 @@ Resources:
           LambdaAliasV1: v1
           LambdaFunctionNameV1: !Ref MyLambdaFunctionV1
           LambdaAliasV2: v2
-          LambdaFunctionNameV2: !Ref MyLambdaFunctionV1
+          LambdaFunctionNameV2: !Ref MyLambdaFunctionV2
 
   MyLambdaFunctionV1:
     Type: AWS::Serverless::Function
